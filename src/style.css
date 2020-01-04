@@ -1,0 +1,21 @@
+#left-blank{
+	background-color: #163540;
+}
+
+
+#form-space{
+	background-color: #163040;
+}
+
+#map-corner{
+	background-color: #163540;
+}
+
+#login-card{
+	width: 100%;
+	margin-top: 25%;
+}
+
+body, html {
+	height: 100%;
+}
