@@ -1,8 +1,8 @@
 #image-container{
 	overflow: hidden;
 	position: absolute;
-	margin-left: 55%;
-	width: 45%;
+	margin-left: 45%;
+	width: 55%;
 	height: 100%;
 	z-index = 10;
 	clip-path: polygon(70% 0%,100% 0%,100% 100%,0% 100%);
@@ -16,6 +16,7 @@
 	width: 400px;
 	margin-top: 1em;
 	background-color: transparent;
+	margin-left: 10%;
 }
 
 .card-header{
@@ -27,6 +28,17 @@
 .card{
 	border: none;
 	font-family: 'Roboto', sans-serif;
+}
+
+.btn{
+	margin-top: 5px;
+	width:49%;
+}
+
+.btn-secondary{
+	color: #ebc959;
+	background-color: #163040;
+	border-color: #ebc959;
 }
 
 body, html {
