@@ -3,11 +3,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Eco-Map</title>
-		<title>Transparent Login Form with Bootstrap 4</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="script.js" defer ></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 		<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 		<link rel="stylesheet" href="https://googleapis.com/css?family=Roboto&display=swap">
@@ -28,18 +28,23 @@
 						<form>
 							<div class="form-group">
 								<label for="username">Username</label>
-								<input type="text" class="form-control" placeholder="Enter Username">
+								<input type="text" class="form-control" placeholder="Username">
 							</div>	
 							<div class="form-group">
 								<label for="password">Password</label>
-								<input type="password" class="form-control" placeholder="Enter Password">
+								<input type="password" class="form-control" placeholder="Password">
 							</div>
-							<div class="dflex justify-content-center 100">
-								<button type="button" class="btn btn-outline-light">Register</button>	
-								<button type="button" class="btn btn-secondary">Login</button>
+							<div id="register" class="form-group collapse" >
+								<label for="password"> Confirm password</label>
+								<input type="password" class="form-control" placeholder="Re-enter Password">
+
+							</div>
+							<div class="dflex flex-row justify-content-between 100">
+								<button id="login-button" type="button" class="btn btn-outline-warning">Login</button>
+								<a>or</a>
+								<button id="register-button" type="button" class="btn btn-outline-light">Register</button>	
 							</div>
 						</form>
-
 					</div>
 				</div>
 			</div>

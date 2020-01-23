@@ -8,10 +8,6 @@
 	clip-path: polygon(70% 0%,100% 0%,100% 100%,0% 100%);
 }
 
-#image-container > img{
-}
-
-
 #login-card{
 	width: 400px;
 	margin-top: 1em;
@@ -32,13 +28,7 @@
 
 .btn{
 	margin-top: 5px;
-	width:49%;
-}
-
-.btn-secondary{
-	color: #ebc959;
-	background-color: #163040;
-	border-color: #ebc959;
+	width:39%;
 }
 
 body, html {
