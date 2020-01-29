@@ -1,0 +1,19 @@
+.navbar-brand{
+	font-family: 'Molle' ,cursive;
+	font-size: x-large;
+}
+
+.divider{
+	font-color: lightgrey;
+}
+
+body{
+	font-family: 'Roboto', sans-serif;
+	background-color: #163040;
+}
+.navbar{
+	font-size: large;
+	background-color: #091721;
+
+}
+
