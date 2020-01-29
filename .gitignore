@@ -17,3 +17,7 @@ wp-content/plugins/hello.php
 /sitemap.xml
 /sitemap.xml.gz
 
+package.json
+.eslintrc.json
+node_modules/
+package-lock.json
