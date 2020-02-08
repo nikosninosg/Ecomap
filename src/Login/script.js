@@ -18,9 +18,10 @@ btn2.click(function(){
 });
 
 let container_dom = document.getElementById('heatmap-container');
+let d_radius = window.innerWidth / 20;
 let config = {
 	container: container_dom,
-	radius: 100,
+	radius: d_radius,
 	maxOpacity: 1,
 	minOpacity: 0,
 	blur: .75,

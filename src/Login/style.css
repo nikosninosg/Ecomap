@@ -20,6 +20,7 @@
 }
 
 #login-register{
+	padding-top: 100px;
 	font-family: 'Roboto' , sans-serif;
 }
 
@@ -27,8 +28,16 @@ hr{
 	border-color: white;
 }
 
-.buttons{
-	margin-top: 5px;
+.btn{
+	width: 40%;
+}
+
+#brand{
+	position: fixed;
+	margin-left: 10px;
+	margin-top:5px;
+	font-family: 'Molle', cursive;
+	
 }
 
 body, html {
