@@ -13,8 +13,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Molle:400i&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="map.js" defer></script>
+
 
 
 	</head>
@@ -43,20 +45,19 @@
 		</nav>
 		<div id="map"></div> 
 
-		<div class="controls container text-white text-center">
-			<div class="row align-items-center" id="year-select">
-				<span class="col col-2 ">YEAR</span>
+		<div class="controls d-flex felx-row flex-wrap justify-content-center m-1 text-white text-center">
+			<div class="align-items-center m-3" id="year-select">
+				<span>YEAR</span>
 
-				<div class="col col-10" id="year-select-list">
+				<div class="felx flex-row" id="year-select-list">
 
-
-					<div class="btn-group ml-5" role="group">
+					<div class="btn-group " role="group">
 
 						<div class="btn-group" role="group">
 							<button id="first-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 								First Year
 							</button>
-							
+
 							<div class="dropdown-menu" id="first-year-list" >
 							</div>
 						</div>
@@ -64,7 +65,7 @@
 						<button type="button" class="btn btn-info" onclick="rangeToggle(this)" ><i class="fas fa-arrow-right"></i></button>	
 
 						<div class="btn-group" role="group">
-							<button id="last-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+							<button disabled id="last-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 								Last Year
 							</button>
 							<div class="dropdown-menu" id="last-year-list">
@@ -72,28 +73,108 @@
 						</div>
 
 					</div>
-					<button type="button" class="btn btn-primary">ALL</button>	
+					<button type="button" class="btn btn-primary " onclick="this.classList.toggle('btn-primary');this.classList.toggle('btn-warning')">ALL</button>	
 
 
 				</div>
 			</div>	
 
-				<div class="row align-items-center" id="month-select">
-					<span class="col col-2 ">MONTH</span>
-					<div class="col col-10 " id="month-select-list"></div>
+			<div class="align-items-center m-3" id="month-select">
+				<span>MONTH</span>
+				<div class="flex flex-row" id="month-select-list">
+					<div class="btn-group " role="group">
+
+						<div class="btn-group" role="group">
+							<button id="first-month" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								First Month
+							</button>
+
+							<div class="dropdown-menu" id="first-month-list" >
+							</div>
+						</div>
+
+						<button type="button" class="btn btn-info" onclick="rangeToggle(this)" ><i class="fas fa-arrow-right"></i></button>	
+
+						<div class="btn-group" role="group">
+							<button id="last-month" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								Last Month
+							</button>
+							<div class="dropdown-menu" id="last-month-list">
+							</div>
+						</div>
+
+					</div>
+					<button type="button" class="btn btn-primary">ALL</button>	
 				</div>	
-				<div class="row align-items-center" id="day-select">
-					<span class="col col-2 ">DAY</span>
-					<div class="col col-10 " id="day-select-list"></div>
+			</div>	
+			<div class="align-items-center m-3" id="day-select">
+				<span>DAY</span>
+				<div class="flex flex-row" id="day-select-list">
+					<div class="btn-group " role="group">
+
+						<div class="btn-group" role="group">
+							<button id="first-day" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								First Day
+							</button>
+
+							<div class="dropdown-menu" id="first-day-list" >
+							</div>
+						</div>
+
+						<button type="button" class="btn btn-info" onclick="rangeToggle(this)" ><i class="fas fa-arrow-right"></i></button>	
+
+						<div class="btn-group" role="group">
+							<button id="last-day" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								Last Year
+							</button>
+							<div class="dropdown-menu" id="last-day-list">
+							</div>
+						</div>
+
+					</div>
+					<button type="button" class="btn btn-primary">ALL</button>	
 				</div>	
-				<div class="row align-items-center" id="hour-select">
-					<span class="col col-2 ">HOUR</span>
-					<div class="col col-10 " id="hour-select-list"></div>
+			</div>	
+			<div class="align-items-center m-3" id="hour-select">
+				<span>HOUR</span>
+				<div class="flex flex-row" id="hour-select-list">
+					<div class="btn-group" role="group">
+
+						<div class="btn-group" role="group">
+							<button id="first-day" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								First Hour
+							</button>
+
+							<div class="dropdown-menu" id="first-hour-list" >
+							</div>
+						</div>
+
+						<button type="button" class="btn btn-info" onclick="rangeToggle(this)" ><i class="fas fa-arrow-right"></i></button>	
+
+						<div class="btn-group" role="group">
+							<button id="last-hour" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								Last Hour 
+							</button>
+
+							<div class="dropdown-menu" id="last-hour-list">
+							</div>
+						</div>
+					</div>
+
+					<button type="button" class="btn btn-primary">ALL</button>	
+				</div>
+			</div>	
+			<div class="align-items-center m-3" id="activity-select">
+				<span>ACTIVITY</span>
+				<div class="dropdown">
+							<button id="activities" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+								Activities
+							</button>
+
+						<div class="dropdown-menu" id="activities-list" >
+						</div>
+						</div>
+					</div>
 				</div>	
-				<div class="row align-items-center" id="activity-select">
-					<span class="col col-2 ">ACTIVITY</span>
-					<div class="col col-10 " id="activity-select-list"></div>
-				</div>	
-			</div>
 	</body>
 </html>

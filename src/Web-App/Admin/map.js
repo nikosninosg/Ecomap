@@ -17,9 +17,9 @@ while (list.length < 6){
 
 //----------------------------------------
 
-function populateDropdown(id,list){
+function populateDropdown(id,items){
 	let dropdown = document.getElementById(id);
-	for (year of list){
+	for (year of items){
 		let btn = document.createElement("button");	
 		let textNode = document.createTextNode(year);
 		btn.appendChild(textNode);
@@ -39,7 +39,49 @@ function rangeToggle(btn){
 	btn.parentNode.childNodes[5].childNodes[1].toggleAttribute("disabled");
 }
 
+function populateActivities(id,items){
+	let dropdown = document.getElementById(id);
+	for (activity of items){
+		let btn = document.createElement("button");	
+		let textNode = document.createTextNode(activity);
+		btn.appendChild(textNode);
+		btn.setAttribute("onclick","tick(this)");
+		btn.classList.add("dropdown-item");
+		dropdown.appendChild(btn);
+	}				
+}
+
+function tick(button){
+	let tick = '<i class="fas fa-check"></i>';
+	if(button.classList.contains("ticked")){
+		button.classList.remove("ticked");
+		let s = button.textContent; 
+		button.innerHTML = s;
+
+	}else{
+		button.classList.add("ticked");
+		button.innerHTML = tick + button.innerHTML;
+	}
+
+}
+//----------------------------------------
+
+
+populateActivities("activities-list",["drive","walk"]);
+
+
 populateDropdown("first-year-list", list);
 populateDropdown("last-year-list", list);
 document.getElementById("last-year").toggleAttribute("disabled");
 
+populateDropdown("first-month-list", ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]);
+populateDropdown("last-month-list", ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]);
+document.getElementById("last-month").toggleAttribute("disabled");
+
+populateDropdown("first-day-list",[ "MON","TUE","WED","THU","FRI","SAT","SUN"]);
+populateDropdown("last-day-list",[ "MON","TUE","WED","THU","FRI","SAT","SUN"] );
+document.getElementById("last-day").toggleAttribute("disabled");
+
+populateDropdown("first-hour-list", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]);
+populateDropdown("last-hour-list", [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]);
+document.getElementById("last-hour").toggleAttribute("disabled");
