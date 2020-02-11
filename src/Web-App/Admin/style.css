@@ -11,10 +11,10 @@ body{
 	font-family: 'Roboto', sans-serif;
 	background-color: #163040;
 }
+
 .navbar{
 	font-size: large;
 	background-color: #091721;
-
 }
 
 .navbar-nav > li{
@@ -35,5 +35,22 @@ body{
 	width:100%;
 	height:100%;
 	background-color:#417182;
-		
+}
+
+#map{
+	width: 100%;
+	height:700px;
+}
+
+.controls span{
+	color: white;
+	font-size: 4vh;
+}
+
+.row{
+	height: 100px;
+}
+
+.col{
+	border: 1px solid black;
 }
