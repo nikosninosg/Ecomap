@@ -31,6 +31,21 @@ function populateDropdown(id,items){
 
 function updateLabel(element){
 	element.parentNode.parentNode.childNodes[1].textContent = element.textContent;
+	if(!element.parentNode.classList.contains("until")){
+		let group=element.parentNode.parentNode.parentNode;
+		let dropdown=group.querySelector("div.until"); 
+		let btns = dropdown.children;
+		for(btn of btns){
+			btn.toggleAttribute("disabled",false);
+		}
+		for(btn of btns){
+			if(btn.textContent == element.textContent){
+				btn.toggleAttribute("disabled",true);
+				break;
+			}
+			btn.toggleAttribute("disabled",true);
+		}
+	}
 		
 }
 
@@ -64,6 +79,11 @@ function tick(button){
 	}
 
 }
+
+function collectSelectos(){
+
+}
+
 //----------------------------------------
 
 

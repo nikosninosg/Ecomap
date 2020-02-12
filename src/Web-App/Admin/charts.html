@@ -12,6 +12,9 @@
 		<link rel="stylesheet" href="https://googleapis.com/css?family=Roboto&display=swap">
 		<link href="https://fonts.googleapis.com/css?family=Molle:400i&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+		<script src="charts.js" defer></script>
+
 
 	</head>
 	<body>
@@ -29,46 +32,31 @@
 						<a class="nav-link" href="#">Map</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Delete</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Extract</a>
+						<a class="nav-link" href="#">Data</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
 		
 		<div id="charts-container" class="container-fluid">
-			<div class="row">
-				<div class="chart-container col-md-12 col-xl-6">
-					<div class="chart">
-						
-					</div>
+			<div class="row justify-content-center">
+				<div class="chart-container col-md-12 col-xl-5">
+					<canvas id="activitiesPie" width="800" height"400"></canvas>
 				</div>
-				<div class="chart-container col-md-12 col-xl-6">
-					<div class="chart">
-						
-					</div>
+				<div class="chart-container col-md-12 col-xl-5">
+					<canvas id="usersBar" width="800" height"400"></canvas>
 				</div>
-				<div class="chart-container col-md-12 col-xl-6">
-					<div class="chart">
-						
-					</div>
+				<div class="chart-container col-md-12 col-xl-5">
+					<canvas id="monthLine" width="800" height"400"></canvas>
 				</div>
-				<div class="chart-container col-md-12 col-xl-6">
-					<div class="chart">
-						
-					</div>
+				<div class="chart-container col-md-12 col-xl-5">
+					<canvas id="dayBar" width="800" height"400"></canvas>
 				</div>	       
-				<div class="chart-container col-md-12 col-xl-6">
-					<div class="chart">
-						
-					</div>
+				<div class="chart-container col-md-12 col-xl-5">
+					<canvas id="hourLine" width="800" height"400"></canvas>
 				</div>	
-				<div class="chart-container col-md-12 col-xl-6">
-					<div class="chart">
-						
-					</div>
+				<div class="chart-container col-md-12 col-xl-5">
+					<canvas id="yearBar" width="800" height"400"></canvas>
 				</div>	
 			</div>
 		</div>

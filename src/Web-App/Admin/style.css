@@ -22,19 +22,13 @@ body{
 }
 
 #charts-container{
-	padding-left:35px;
-	padding-right:35px;
+
 }
 
 .chart-container{
-	padding:20px;
-	height: 500px;
-}
-
-.chart{
-	width:100%;
-	height:100%;
-	background-color:#417182;
+	padding:25px;
+	margin:10px;
+	border: 1px solid red;
 }
 
 #map{
@@ -47,6 +41,21 @@ body{
 	font-size: 4vh;
 }
 
-.col{
-	border: 1px solid black;
+
+.icon{
+	font-size:40vh;
+	transition: all 0.2s ease;
+	margin-left: 40px;
+	margin-right: 40px;
 }
+
+.icon:hover{
+	transform: scale(1.5);
+	color: #ff1493;
+}
+
+#icons{
+	margin-top:10em;
+}
+
+

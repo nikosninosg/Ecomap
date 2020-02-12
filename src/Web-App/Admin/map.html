@@ -68,12 +68,12 @@
 							<button disabled id="last-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 								Last Year
 							</button>
-							<div class="dropdown-menu" id="last-year-list">
+							<div class="dropdown-menu until" id="last-year-list">
 							</div>
 						</div>
 
 					</div>
-					<button type="button" class="btn btn-primary " onclick="this.classList.toggle('btn-primary');this.classList.toggle('btn-warning')">ALL</button>	
+					<button type="button" class="btn btn-primary" onclick="this.classList.toggle('btn-primary');this.classList.toggle('btn-warning')">ALL</button>	
 
 
 				</div>
@@ -99,12 +99,12 @@
 							<button id="last-month" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 								Last Month
 							</button>
-							<div class="dropdown-menu" id="last-month-list">
+							<div class="dropdown-menu until" id="last-month-list">
 							</div>
 						</div>
 
 					</div>
-					<button type="button" class="btn btn-primary">ALL</button>	
+					<button type="button" class="btn btn-primary" onclick="this.classList.toggle('btn-primary');this.classList.toggle('btn-warning')">ALL</button>	
 				</div>	
 			</div>	
 			<div class="align-items-center m-3" id="day-select">
@@ -127,12 +127,12 @@
 							<button id="last-day" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
 								Last Year
 							</button>
-							<div class="dropdown-menu" id="last-day-list">
+							<div class="dropdown-menu until" id="last-day-list">
 							</div>
 						</div>
 
 					</div>
-					<button type="button" class="btn btn-primary">ALL</button>	
+					<button type="button" class="btn btn-primary" onclick="this.classList.toggle('btn-primary');this.classList.toggle('btn-warning')">ALL</button>	
 				</div>	
 			</div>	
 			<div class="align-items-center m-3" id="hour-select">
@@ -156,25 +156,27 @@
 								Last Hour 
 							</button>
 
-							<div class="dropdown-menu" id="last-hour-list">
+							<div class="dropdown-menu until" id="last-hour-list">
 							</div>
 						</div>
 					</div>
 
-					<button type="button" class="btn btn-primary">ALL</button>	
+					<button type="button" class="btn btn-primary" onclick="this.classList.toggle('btn-primary');this.classList.toggle('btn-warning')">ALL</button>	
 				</div>
 			</div>	
 			<div class="align-items-center m-3" id="activity-select">
 				<span>ACTIVITY</span>
 				<div class="dropdown">
-							<button id="activities" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-								Activities
-							</button>
+					<button id="activities" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+						Activities
+					</button>
 
-						<div class="dropdown-menu" id="activities-list" >
-						</div>
-						</div>
+					<div class="dropdown-menu" id="activities-list" >
 					</div>
-				</div>	
+				</div>
+			</div>
+
+			<button type="button" class="btn btn-primary btn-large m-3">HEATMAP</button>
+		</div>	
 	</body>
 </html>
