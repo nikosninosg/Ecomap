@@ -1,42 +1,87 @@
+<?php 
+	include('server.php') 
+	session_start(); 
+
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You must log in first";
+		header('location: login.php');
+	}
+
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Eco-Map</title>
-		<title>Transparent Login Form with Bootstrap 4</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/heatmapjs@2.0.2/heatmap.js"></script>
+		<script src="script.js" defer ></script>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
 		<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 		<link rel="stylesheet" href="https://googleapis.com/css?family=Roboto&display=swap">
+		<link href="https://fonts.googleapis.com/css?family=Molle:400i&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 
 	<body>
-		<div id=image-container>
-			<img src="/home/pan/CEID/7/Web/project/resources/images/Patras_old_city_plan_large.jpg">
+		<div id="brand" class="text-white">
+			<h1 class="display-4">Eco-Map</h1>	
 		</div>
-		<div class="container">
-			<div class="d-flex justify-content-center 100">
-				<div id="login-card" class="card text-center">
-					<div class="card-header text-white">
-						<i class="fa fa-user"></i>
-					</div>
-					<div class="card-body text-white">
-						<form>
-							<div class="form-group">
-								<label for="username">Username</label>
-								<input type="text" class="form-control" placeholder="Enter Username">
-							</div>	
-							<div class="form-group">
-								<label for="password">Password</label>
-								<input type="password" class="form-control" placeholder="Enter Password">
-							</div>
-						</form>
-					</div>
+		<div id="image-container">
+			<div id="heatmap-container"></div>
+		</div>
+
+		<div id="login-register" class="container">
+			<div class="col-sm-6 col-12 text-center">
+				<div id="icon" class="text-white">
+					<i class="fa fa-user display-1"></i>
+					<hr class="mt-4"/>
 				</div>
+
+				<form class="text-white" method="post" action="register.php">
+					<?php include('errors.php'); ?>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" class="form-control" placeholder="Username" name="username" required>
+					</div>	
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="password" class="form-control" placeholder="Password" name="password_1" required>
+					</div>
+					<div id="register" class="collapse" >
+						<div class="form-group" >
+							<label for="password">Confirm password</label>
+							<input type="password" class="form-control" placeholder="Re-enter Password" name="password_2" required>
+						</div>
+						<div class="form-group" >
+							<label for="email">Email</label>
+							<input type="email" class="form-control" placeholder="Enter Email" name="email" required>
+						</div>
+					</div>
+					<div class="terms">
+					<input type="checkbox" name="terms"> I accept <a href="gdpr.html">Terms & Privacy</a>
+					</div>
+					
+					<div class="d-flex flex-row justify-content-center 100">
+						
+						<button id="login-button" type="button" name="login_user" class="btn btn-outline-warning"><a href="login.php">Login</a></button>
+						<a class="m-3">or</a>
+						<button id="register-button" type="button" name="reg_user" class="btn btn-outline-light">Register</button>	
+					</div>
+				</form>
 			</div>
 		</div>
 
