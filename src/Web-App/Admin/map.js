@@ -197,28 +197,28 @@ document.getElementById("last-hour").toggleAttribute("disabled");
 function getJSON() {
 	yearStart = document
 		.getElementById("first-year")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	yearEnd = document
 		.getElementById("last-year")
-		.textContent.replace("/'\t'|'\n'/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	monthStart = document
 		.getElementById("first-month")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	monthEnd = document
 		.getElementById("last-month")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	dayStart = document
 		.getElementById("first-day")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	dayEnd = document
 		.getElementById("last-day")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	hourStart = document
 		.getElementById("first-hour")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	hourEnd = document
 		.getElementById("last-hour")
-		.textContent.replace("/\t|\n/g", "");
+		.textContent.replace(/\t|\n/g, "");
 	let actList = [];
 	let list = document.getElementById("activities-list").children;
 	for (item of list) {
@@ -237,4 +237,60 @@ function getJSON() {
 		hourEnd: hourEnd,
 		actList: actList
 	};
+}
+
+//================================================================================
+
+//const data = {fuck: "you",u: 2,why: "mean"};
+
+//fetch('http://localhost:80/index.html/testing-backend/test.php', {
+//	method: "POST",
+//	headers: { "Content-Type": "application/json" },
+//	body: JSON.stringify(data)
+//	})
+//	.then(res => { return res.text(); }).then((data) => {console.log(data);}) .catch((res) => console.log('8==D'));
+
+let fileUrl =
+	"http://localhost:80/index.html/testing-backend/locationDataSmall.json";
+
+var cfg = {
+	radius: 30,
+	maxOpacity: 0.7,
+	scaleRadius: false,
+	useLocalExtrema: false,
+	latField: "lat",
+	lngField: "lng",
+	valueField: "count"
+};
+
+async function recieveCoords() {
+	let coords = [];
+	let data = await fetch(fileUrl).then(response => {
+		return response.json();
+	});
+	for (i of data.locations) {
+		pair = {
+			lat: i.latitudeE7 / 10000000,
+			lng: i.longitudeE7 / 10000000,
+			count: 1
+		};
+		coords.push(pair);
+	}
+	return { max: 10, data: coords };
+}
+
+async function drawHeatMap(map) {
+	if (map.heatmap) {
+		map.remove(heatmap);
+		return;
+	}
+
+	let data = await recieveCoords().then(data => {
+		return data;
+	});
+	console.log(data);
+
+	let heatmap = new HeatmapOverlay(cfg);
+	map.addLayer(heatmap);
+	heatmap.setData(data);
 }

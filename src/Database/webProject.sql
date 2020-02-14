@@ -1,6 +1,6 @@
-drop database if exists web;
-create database web;
-use web;
+drop database if exists ecomap;
+create database ecomap;
+use ecomap;
 
 
 
