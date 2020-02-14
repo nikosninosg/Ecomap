@@ -195,30 +195,42 @@ document.getElementById("last-hour").toggleAttribute("disabled");
 //--------------------------------------------------
 
 function getJSON() {
-	yearStart = document
+	let yearStart = document
 		.getElementById("first-year")
 		.textContent.replace(/\t|\n/g, "");
-	yearEnd = document
-		.getElementById("last-year")
-		.textContent.replace(/\t|\n/g, "");
-	monthStart = document
+	let yearEnd = document.getElementById("last-year");
+	if (yearEnd.hasAttribute("disabled")) {
+		yearEnd = false;
+	} else {
+		yearEnd = yearEnd.textContent.replace(/\t|\n/g, "");
+	}
+	let monthStart = document
 		.getElementById("first-month")
 		.textContent.replace(/\t|\n/g, "");
-	monthEnd = document
-		.getElementById("last-month")
-		.textContent.replace(/\t|\n/g, "");
-	dayStart = document
+	let monthEnd = document.getElementById("last-month");
+	if (monthEnd.hasAttribute("disabled")) {
+		monthEnd = false;
+	} else {
+		monthEnd = monthEnd.textContent.replace(/\t|\n/g, "");
+	}
+	let dayStart = document
 		.getElementById("first-day")
 		.textContent.replace(/\t|\n/g, "");
-	dayEnd = document
-		.getElementById("last-day")
-		.textContent.replace(/\t|\n/g, "");
-	hourStart = document
+	let dayEnd = document.getElementById("last-day");
+	if (dayEnd.hasAttribute("disabled")) {
+		dayEnd = false;
+	} else {
+		dayEnd = dayEnd.textContent.replace(/\t|\n/g, "");
+	}
+	let hourStart = document
 		.getElementById("first-hour")
 		.textContent.replace(/\t|\n/g, "");
-	hourEnd = document
-		.getElementById("last-hour")
-		.textContent.replace(/\t|\n/g, "");
+	let hourEnd = document.getElementById("last-hour");
+	if (hourEnd.hasAttribute("disabled")) {
+		hourEnd = false;
+	} else {
+		hourEnd = hourEnd.textContent.replace(/\t|\n/g, "");
+	}
 	let actList = [];
 	let list = document.getElementById("activities-list").children;
 	for (item of list) {
@@ -226,7 +238,27 @@ function getJSON() {
 			actList.push(item.textContent);
 		}
 	}
+	let yearAll = false;
+	if (document.getElementById("year-all").classList.contains("btn-warning")) {
+		yearAll = true;
+	}
+	let monthAll = false;
+	if (document.getElementById("month-all").classList.contains("btn-warning")) {
+		monthAll = true;
+	}
+	let dayAll = false;
+	if (document.getElementById("day-all").classList.contains("btn-warning")) {
+		dayAll = true;
+	}
+	let hourAll = false;
+	if (document.getElementById("hour-all").classList.contains("btn-warning")) {
+		hourAll = true;
+	}
 	return {
+		yearAll: yearAll,
+		monthAll: monthAll,
+		dayAll: dayAll,
+		hourAll: hourAll,
 		yearStart: yearStart,
 		yearEnd: yearEnd,
 		monthStart: monthStart,
@@ -240,18 +272,7 @@ function getJSON() {
 }
 
 //================================================================================
-
-//const data = {fuck: "you",u: 2,why: "mean"};
-
-//fetch('http://localhost:80/index.html/testing-backend/test.php', {
-//	method: "POST",
-//	headers: { "Content-Type": "application/json" },
-//	body: JSON.stringify(data)
-//	})
-//	.then(res => { return res.text(); }).then((data) => {console.log(data);}) .catch((res) => console.log('8==D'));
-
-let fileUrl =
-	"http://localhost:80/index.html/testing-backend/locationDataSmall.json";
+let fileUrl = "http://localhost:80/index.html/testing-backend/ptest.json";
 
 var cfg = {
 	radius: 30,
@@ -265,9 +286,11 @@ var cfg = {
 
 async function recieveCoords() {
 	let coords = [];
-	let data = await fetch(fileUrl).then(response => {
-		return response.json();
-	});
+	let data = await fetch(fileUrl)
+		.then(response => {
+			return response.json();
+		})
+		.catch(responce => console.log("error"));
 	for (i of data.locations) {
 		pair = {
 			lat: i.latitudeE7 / 10000000,
