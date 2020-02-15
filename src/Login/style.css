@@ -22,6 +22,7 @@
 #login-register{
 	padding-top: 100px;
 	font-family: 'Roboto' , sans-serif;
+	font-size: larger;
 }
 
 hr{
@@ -43,6 +44,13 @@ hr{
 body, html {
 	background-color: #163040;
 	height: 100%;
+}
+
+.warning{
+	display: none;
+	color: red;
+	font-size: small;
+	font-weight: lighter;
 }
 
 @media screen and (orientation: portrait) {
