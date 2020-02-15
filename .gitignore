@@ -21,3 +21,7 @@ package.json
 .eslintrc.json
 node_modules/
 package-lock.json
+.eslintrc
+.prettierrc
+src/testing-backend/*
+

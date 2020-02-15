@@ -38,7 +38,7 @@ body{
 
 .controls span{
 	color: white;
-	font-size: 20pt;
+	font-size: 4vh;
 }
 
 
@@ -57,5 +57,24 @@ body{
 #icons{
 	margin-top:10em;
 }
+
+.upload{
+	color: white;
+	margin-top:10px;
+	margin-left: auto;
+	margin-right: auto;
+	border:solid 1px red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+.upload-button-cont{
+	height:200px;
+	width:200px;
+}
+
 
 
